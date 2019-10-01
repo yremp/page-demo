@@ -23,7 +23,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:list {"ordered":true} -->
-<ol><li> Demo Github地址 </li><li><a href="https://mybatis.plus/">Mybatis-plus官方文档</a></li></ol>
+<ol><li> <a href="https://github.com/yremp/page-demo">Demo Github地址 </a></li><li><a href="https://mybatis.plus/">Mybatis-plus官方文档</a></li></ol>
 <!-- /wp:list -->
 
 <!-- wp:heading {"level":3} -->
@@ -431,5 +431,3 @@ public class IndexController {
 <!-- wp:paragraph -->
 <p>以上大致上就可以实现分页功能，整个来说还是比较简单，多加练习可以熟练掌握分页功能。</p>
 <!-- /wp:paragraph -->
-
-
