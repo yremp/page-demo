@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+   <div class="alert alert-success" role="alert" th:each="user : ${users}" style="margin: 20px;">
+       <div class="row">
+           <div class="col-md-1">
+               <img src="https://yremp.live/wp-content/uploads/2019/06/avatar.jpg"  style="height: 50px;width:50px " class="img-rounded">
+           </div>
+           <div class="col-md-10">
+               <p th:text="${user.id}"></p>
+               <p th:text="${user.name}"></p>
+           </div>
+       </div>
+   </div>
+   <nav aria-label="Page navigation" th:if="${totalPage!=0}" style="text-align: center">
+       <ul class="pagination">
+           <li th:if="${pagenation.showFirstPage}">
+               <a th:href="@{/(page=1)}" aria-label="Previous">
+                   <span aria-hidden="true">&lt;&lt;</span>
+               </a>
+           </li>
+           <li th:if="${pagenation.showPrevious}">
+               <a href="#" aria-label="Previous" th:href="@{/(page=${pagenation.page-1})}">
+                   <span aria-hidden="true">&lt;</span>
+               </a>
+           </li>
+           <li th:each="page :${pagenation.pages}" th:class="${pagenation.page==page}?'active':''">
+               <a href="#" aria-label="Previous" th:href="@{/(page=${page})}" th:text="${page}">
+                   <span aria-hidden="true"></span>
+               </a>
+           </li>
+           <li th:if="${pagenation.showNext}">
+               <a href="#" th:href="@{/(page=${pagenation.page+1})}" aria-label="Previous">
+                   <span aria-hidden="true">&gt;</span>
+               </a>
+           </li>
+           <li th:if="${pagenation.showEndPage}">
+               <a href="#" th:href="@{/(page=${pagenation.totalPage})}" aria-label="Previous">
+                   <span aria-hidden="true">&gt;&gt;</span>
+               </a>
+           </li>
+       </ul>
+   </nav>
+   <div class="alert alert-info" role="alert" style="text-align: center">
+       <a href="https://yremp.live" class="alert-link">我的博客地址</a>
+   </div>
+</body>
+</html>
